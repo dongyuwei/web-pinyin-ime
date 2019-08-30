@@ -10,6 +10,6 @@ const lines = googlePinyin
   .map(function(line) {
     return line.replace(' 0 ', '|');
   });
-
+console.log(lines.length);
 const content = `module.exports = "${lines.join(';')}"`;
-fs.writeFileSync('google_pinyin_dict_utf8_65105.js', content, 'utf-8');
+fs.writeFileSync('google_pinyin_dict_utf8_55320.js', content, 'utf-8');

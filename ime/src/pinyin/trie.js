@@ -1,6 +1,6 @@
 import Trie from 'node-ternary-search-trie';
 
-import content from './google_pinyin_dict_utf8_65105.js';
+import content from './google_pinyin_dict_utf8_55320.js';
 
 export const dict = {};
 const trie = new Trie();
