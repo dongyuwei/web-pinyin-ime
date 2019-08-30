@@ -15,15 +15,15 @@ export default class Complete extends PureComponent {
       inputed: '',
       value: ''
     };
-    this.getCandidatesThrottled = throttle(this.getCandidates, 200);
+    this.getCandidatesThrottled = throttle(this.getCandidates, 100);
   }
 
   getCandidates = input => {
     input = input
       .trim()
       .toLowerCase()
-      .replace(this.state.inputed, '')
-      .replace(/[^\x00-\x7F]/g, '');
+      .replace(/[^\x00-\x7F]/g, '')
+      .replace(/\s/g, '');
 
     if (input) {
       let list = [];
@@ -47,24 +47,34 @@ export default class Complete extends PureComponent {
   };
 
   onSelect = value => {
-    this.setState({
-      inputed: this.state.inputed + value
-    });
+    this.setState(
+      {
+        inputed: this.state.inputed + value
+      },
+      () => {
+        this.onChange(this.state.inputed);
+      }
+    );
+  };
+
+  onChange = value => {
+    this.setState({ value });
   };
 
   render() {
-    const { inputed, dataSource } = this.state;
+    const { value, dataSource } = this.state;
     return (
       <div className={styles.inputBox}>
-        <TextArea value={inputed} className={styles.result} style={{ height: 50 }} />
         <AutoComplete
-          autoFocus
-          placeholder="请输入拼音"
+          value={value}
           dataSource={dataSource}
           style={{ width: 400 }}
-          onSearch={this.getCandidatesThrottled}
           onSelect={this.onSelect}
-        ></AutoComplete>
+          onSearch={this.getCandidatesThrottled}
+          onChange={this.onChange}
+        >
+          <TextArea placeholder="请输入拼音" style={{ height: 77 }} />
+        </AutoComplete>
       </div>
     );
   }
