@@ -86,7 +86,7 @@ export default class Complete extends PureComponent {
           onChange={this.onChange}
         >
           <TextArea
-            placeholder="请输入拼音"
+            placeholder="Please input Chinese pinyin 请输入拼音"
             style={{ height: 77 }}
             ref={inputEl => {
               this.inputEl = inputEl;
