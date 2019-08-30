@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { AutoComplete, Input } from 'antd';
+import { AutoComplete, Input, Button } from 'antd';
 import { throttle, flatten } from 'lodash';
 
 import trie, { dict } from './trie.js';
@@ -61,6 +61,18 @@ export default class Complete extends PureComponent {
     this.setState({ value });
   };
 
+  copyText = () => {
+    if (this.inputEl) {
+      console.log('aa', this.inputEl);
+      const textAreaRef = this.inputEl.textAreaRef;
+
+      textAreaRef.select();
+      textAreaRef.setSelectionRange(0, 99999); /*For mobile devices*/
+
+      document.execCommand('copy');
+    }
+  };
+
   render() {
     const { value, dataSource } = this.state;
     return (
@@ -73,8 +85,17 @@ export default class Complete extends PureComponent {
           onSearch={this.getCandidatesThrottled}
           onChange={this.onChange}
         >
-          <TextArea placeholder="请输入拼音" style={{ height: 77 }} />
+          <TextArea
+            placeholder="请输入拼音"
+            style={{ height: 77 }}
+            ref={inputEl => {
+              this.inputEl = inputEl;
+            }}
+          />
         </AutoComplete>
+        <Button onClick={this.copyText} className={styles.btn}>
+          Copy Text
+        </Button>
       </div>
     );
   }

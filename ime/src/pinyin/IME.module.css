@@ -1,7 +1,8 @@
 .inputBox {
   margin: 100px auto;
+  padding: 10px;
 }
 
-.input {
-  height: 50px;
+.btn {
+  margin: 10px;
 }
