@@ -23,7 +23,7 @@ const buildTrie = content => {
     }
   });
 
-  for (let key in dict) {
+  for (const key in dict) {
     trie.set(key, key);
   }
 

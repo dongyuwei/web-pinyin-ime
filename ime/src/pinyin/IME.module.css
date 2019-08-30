@@ -1,3 +1,9 @@
 .inputBox {
   margin: 100px auto;
 }
+
+.result {
+  display: block;
+  width: 400px;
+  margin: 10px auto;
+}

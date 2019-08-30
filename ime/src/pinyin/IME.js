@@ -1,16 +1,19 @@
 import React, { PureComponent } from 'react';
-import { AutoComplete } from 'antd';
+import { AutoComplete, Input } from 'antd';
 import { throttle, flatten } from 'lodash';
 
 import trie, { dict } from './trie.js';
 import styles from './IME.module.css';
+
+const { TextArea } = Input;
 
 export default class Complete extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       dataSource: [],
-      inputed: ''
+      inputed: '',
+      value: ''
     };
     this.getCandidatesThrottled = throttle(this.getCandidates, 200);
   }
@@ -19,8 +22,8 @@ export default class Complete extends PureComponent {
     input = input
       .trim()
       .toLowerCase()
-      .replace(this.state.inputed, '');
-    console.log('input', input, this.state.inputed);
+      .replace(this.state.inputed, '')
+      .replace(/[^\x00-\x7F]/g, '');
 
     if (input) {
       let list = [];
@@ -47,21 +50,21 @@ export default class Complete extends PureComponent {
     this.setState({
       inputed: this.state.inputed + value
     });
-    console.log('onSelect', value);
   };
 
   render() {
-    const { dataSource } = this.state;
+    const { inputed, dataSource } = this.state;
     return (
       <div className={styles.inputBox}>
+        <TextArea value={inputed} className={styles.result} style={{ height: 50 }} />
         <AutoComplete
           autoFocus
-          dataSource={dataSource}
-          style={{ width: 200 }}
-          onSelect={this.onSelect}
-          onSearch={this.getCandidatesThrottled}
           placeholder="请输入拼音"
-        />
+          dataSource={dataSource}
+          style={{ width: 400 }}
+          onSearch={this.getCandidatesThrottled}
+          onSelect={this.onSelect}
+        ></AutoComplete>
       </div>
     );
   }
