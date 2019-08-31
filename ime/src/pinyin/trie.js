@@ -24,9 +24,10 @@ const buildDict = words => {
       };
       dict[pinyin] = dict[pinyin] || [];
       dict[pinyin].push(value);
-
-      dict[abbr] = dict[abbr] || [];
-      dict[abbr].push(value);
+      if (abbr.length >= 2) {
+        dict[abbr] = dict[abbr] || [];
+        dict[abbr].push(value);
+      }
     }
   });
 
