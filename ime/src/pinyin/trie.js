@@ -1,4 +1,4 @@
-import { flatten } from 'lodash';
+import { flatten, uniq } from 'lodash';
 import { words, packedTrie } from './google_pinyin_dict_utf8_55320.js';
 const PTrie = require('dawg-lookup/lib/ptrie').PTrie;
 
@@ -46,7 +46,7 @@ const getCandidates = (trie, dict) => input => {
         .map(item => item.w);
     }
   }
-  return list;
+  return uniq(list);
 };
 
 export default getCandidates(new PTrie(packedTrie), buildDict(words));
