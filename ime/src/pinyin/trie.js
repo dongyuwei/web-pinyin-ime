@@ -10,14 +10,23 @@ const buildDict = words => {
 
     const arr = line.split('|');
     if (arr.length === 2) {
+      const abbr = arr[1]
+        .split(' ')
+        .map(item => item.substring(0, 1))
+        .join('');
+
       const pinyin = arr[1].replace(/\s/g, '');
       const [word, frequency] = arr[0].split(' ');
 
-      dict[pinyin] = dict[pinyin] || [];
-      dict[pinyin].push({
+      const value = {
         w: word,
         f: parseFloat(frequency)
-      });
+      };
+      dict[pinyin] = dict[pinyin] || [];
+      dict[pinyin].push(value);
+
+      dict[abbr] = dict[abbr] || [];
+      dict[abbr].push(value);
     }
   });
 
