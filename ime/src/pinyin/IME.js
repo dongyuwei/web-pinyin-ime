@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import { AutoComplete, Input, Button } from 'antd';
-import { throttle, flatten } from 'lodash';
+import { throttle } from 'lodash';
 
-import trie, { dict } from './trie.js';
+import getCandidates from './trie.js';
 import styles from './IME.module.css';
 
 const { TextArea } = Input;
+const Max_Candidates = 50;
 
 export default class Complete extends PureComponent {
   constructor(props) {
@@ -26,18 +27,8 @@ export default class Complete extends PureComponent {
       .replace(/\s/g, '');
 
     if (input) {
-      let list = [];
-      const value = dict[input];
-      if (value) {
-        list = dict[input].sort((a, b) => b.f - a.f).map(item => item.w);
-      } else if (input.length > 2) {
-        list = flatten(trie.keysWithPrefix(input).map(key => dict[key]))
-          .sort((a, b) => b.f - a.f)
-          .map(item => item.w);
-      }
-
       this.setState({
-        dataSource: list.slice(0, 50)
+        dataSource: getCandidates(input).slice(0, Max_Candidates)
       });
     } else {
       this.setState({
