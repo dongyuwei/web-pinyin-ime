@@ -13,18 +13,25 @@ export default class Complete extends PureComponent {
     super(props);
     this.state = {
       dataSource: [],
-      inputed: '',
-      value: ''
+      value: '',
+      rawInput: '',
+      currentInput: ''
     };
     this.getCandidatesThrottled = throttle(this.getCandidates, 100);
   }
 
-  getCandidates = input => {
-    input = input
+  getCandidates = rawInput => {
+    const input = rawInput
       .trim()
       .toLowerCase()
       .replace(/[^\x00-\x7F]/g, '')
-      .replace(/\s/g, '');
+      .replace(/[^\w\s]|_/g, '')
+      .replace(/\s+/g, '');
+
+    this.setState({
+      rawInput,
+      currentInput: input
+    });
 
     if (input) {
       this.setState({
@@ -38,23 +45,13 @@ export default class Complete extends PureComponent {
   };
 
   onSelect = value => {
-    this.setState(
-      {
-        inputed: this.state.inputed + value
-      },
-      () => {
-        this.onChange(this.state.inputed);
-      }
-    );
+    this.setState({
+      value: this.state.rawInput.replace(this.state.currentInput, value)
+    });
   };
 
   onChange = value => {
-    const preValue = this.state.value;
-    let inputed = this.state.inputed;
-    if (value.length < preValue.length) {
-      inputed = inputed.replace(preValue.replace(value, ''), '');
-    }
-    this.setState({ value, inputed: inputed });
+    this.setState({ value });
   };
 
   copyText = () => {
