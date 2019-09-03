@@ -21,12 +21,14 @@ export default class Complete extends PureComponent {
   }
 
   getCandidates = rawInput => {
-    const input = rawInput
+    const arr = rawInput
       .trim()
       .toLowerCase()
       .replace(/[^\x00-\x7F]/g, '')
-      .replace(/[^\w\s]|_/g, '')
-      .replace(/\s+/g, '');
+      .replace(/[^\w\s]|_/g, ' ')
+      .split(' ');
+
+    const input = arr[arr.length - 1];
 
     this.setState({
       rawInput,
