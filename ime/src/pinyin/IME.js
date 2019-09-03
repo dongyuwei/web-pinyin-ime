@@ -49,7 +49,12 @@ export default class Complete extends PureComponent {
   };
 
   onChange = value => {
-    this.setState({ value });
+    const preValue = this.state.value;
+    let inputed = this.state.inputed;
+    if (value.length < preValue.length) {
+      inputed = inputed.replace(preValue.replace(value, ''), '');
+    }
+    this.setState({ value, inputed: inputed });
   };
 
   copyText = () => {
@@ -58,8 +63,7 @@ export default class Complete extends PureComponent {
       const textAreaRef = this.inputEl.textAreaRef;
 
       textAreaRef.select();
-      textAreaRef.setSelectionRange(0, 99999); /*For mobile devices*/
-
+      textAreaRef.setSelectionRange(0, 99999);
       document.execCommand('copy');
     }
   };
