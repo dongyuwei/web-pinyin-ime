@@ -1,7 +1,7 @@
 const fs = require('fs');
 var Trie = require('dawg-lookup').Trie;
 
-// iconv -f UTF-16 -t UTF-8 google_pinyin_rawdict_utf16_65105_freq.txt  > google_pinyin_rawdict_utf8_65105_freq.txt
+// iconv -f UTF-16 -t UTF-8 rawdict_utf16_65105_freq.txt  > google_pinyin_rawdict_utf8_65105_freq.txt
 
 const googlePinyin = fs.readFileSync('./google_pinyin_rawdict_utf8_65105_freq.txt', 'utf-8');
 const pinyinList = [];
