@@ -40,8 +40,10 @@ const getCandidates = (trie, dict) => input => {
   if (input) {
     const value = dict[input];
     if (value) {
+      // full pinyin match, or abbr match.
       list = dict[input];
     } else if (input.length > 2) {
+      // pinyin prefix match, using prepared packed trie data.
       list = flatten(trie.completions(input).map(key => dict[key]));
     }
 

@@ -15,10 +15,10 @@ The `rawdict_utf16_65105_freq.txt` and `NOTICE` are included in `./ime/src/scrip
 ### The process of the pinyin dict:
 
 - Convert the file to UTF-8 encoded: `iconv -f UTF-16 -t UTF-8 rawdict_utf16_65105_freq.txt > google_pinyin_rawdict_utf8_65105_freq.txt`
-- Transform the dict to `./ime/src/pinyin/google_pinyin_dict_utf8_55320.js`
+- Transform the dict to `./ime/src/pinyin/google_pinyin_dict_utf8_55320.js`, see the nodejs script: `./ime/src/script/dict_preprocess.js`
 - Build a packed trie in the transform step. This enables pinyin prefix input.
 
 ## For dev, see `./ime/README.md`
 
-The main logic located in `./ime/src/pinyin/IME.js` and `./ime/src/pinyin/ime_engine.js`.
-If you make any changes, make sure to run `cd ime && yarn test`.
+The core logic located in `./ime/src/pinyin/ime_engine.js` and `./ime/src/pinyin/IME.js`
+If you make any changes, make sure to run `cd ime && yarn test`, see `./ime/src/pinyin/ime_engine.test.js`.

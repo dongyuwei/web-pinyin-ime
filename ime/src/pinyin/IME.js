@@ -17,6 +17,7 @@ export default class Complete extends PureComponent {
       rawInput: '',
       currentInput: ''
     };
+
     this.getCandidatesThrottled = throttle(this.getCandidates, 100);
   }
 
@@ -24,11 +25,11 @@ export default class Complete extends PureComponent {
     const arr = rawInput
       .trim()
       .toLowerCase()
-      .replace(/[^\x00-\x7F]/g, '')
-      .replace(/[^\w\s]|_/g, ' ')
+      .replace(/[^\x00-\x7F]/g, '') // remove chinese characters.
+      .replace(/[^\w\s]|_/g, ' ') // replace punctuation such as `,.?'"` with space.
       .split(' ');
 
-    const input = arr[arr.length - 1];
+    const input = arr[arr.length - 1]; // only use the last pinyin characters as actual input to get candidates.
 
     this.setState({
       rawInput,
@@ -48,6 +49,7 @@ export default class Complete extends PureComponent {
 
   onSelect = value => {
     this.setState({
+      // we must keep the raw input, includes existing Chinese characters and all punctuations and space.
       value: this.state.rawInput.replace(this.state.currentInput, value)
     });
   };

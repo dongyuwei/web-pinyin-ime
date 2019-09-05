@@ -4,11 +4,13 @@ it('should get candidates with full pinyin', () => {
   expect(getCandidates('xihongshi')).toEqual(['西红柿']);
 });
 
-it('should get sorted candidates with abbr of pinyin(First char of pinyin)', () => {
+it('should get sorted candidates with abbr of pinyin(First chars of pinyin)', () => {
+  // `xhs` maybe abbr of `xin hua she`, or `xi hong shi`, etc.
   expect(getCandidates('xhs')).toEqual(['新华社', '西红柿', '小和尚', '小护士', '巡回赛']);
 });
 
 it('should get sorted candidates with pinyin prefix', () => {
+  // `xih` maybe prefix of `xi huan`, or `xi huan ni`, or `xi hong shi`, etc.
   expect(getCandidates('xih')).toEqual([
     '喜欢',
     '喜欢你',
@@ -31,4 +33,9 @@ it('should get sorted candidates with pinyin prefix', () => {
   ]);
 
   expect(getCandidates('xiho')).toEqual(['西红柿']);
+  expect(getCandidates('xihon')).toEqual(['西红柿']);
+  expect(getCandidates('xihong')).toEqual(['西红柿']);
+  expect(getCandidates('xihongs')).toEqual(['西红柿']);
+  expect(getCandidates('xihongsh')).toEqual(['西红柿']);
+  expect(getCandidates('xihongshi')).toEqual(['西红柿']);
 });
