@@ -13,6 +13,11 @@
   "engines": {
     "node": ">= 10.16.3"
   },
+  "author": {
+    "name": "dongyuwei",
+    "email": "newdongyuwei@gmail.com",
+    "url": "https://twitter.com/newdongyuwei"
+  },
   "homepage": "/",
   "scripts": {
     "start": "PORT=5555 react-scripts start",
