@@ -10,6 +10,7 @@ const buildDict = words => {
 
     const arr = line.split('|');
     if (arr.length === 2) {
+      //abbr is the first chars of the pinyin, eg: `xhs` is abbr of `xi hong shi`
       const abbr = arr[1]
         .split(' ')
         .map(item => item.substring(0, 1))
@@ -39,12 +40,13 @@ const getCandidates = (trie, dict) => input => {
   if (input) {
     const value = dict[input];
     if (value) {
-      list = dict[input].sort((a, b) => b.f - a.f).map(item => item.w);
+      list = dict[input];
     } else if (input.length > 2) {
-      list = flatten(trie.completions(input).map(key => dict[key]))
-        .sort((a, b) => b.f - a.f)
-        .map(item => item.w);
+      list = flatten(trie.completions(input).map(key => dict[key]));
     }
+
+    //sort candidates by word frequency
+    list = list.sort((a, b) => b.f - a.f).map(item => item.w);
   }
   return uniq(list);
 };
