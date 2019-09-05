@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { AutoComplete, Input, Button } from 'antd';
 import { throttle } from 'lodash';
 
-import getCandidates from './trie.js';
+import getCandidates from './ime_engine.js';
 import styles from './IME.module.css';
 
 const { TextArea } = Input;
@@ -58,7 +58,6 @@ export default class Complete extends PureComponent {
 
   copyText = () => {
     if (this.inputEl) {
-      console.log('aa', this.inputEl);
       const textAreaRef = this.inputEl.textAreaRef;
 
       textAreaRef.select();
