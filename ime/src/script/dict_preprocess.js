@@ -8,7 +8,7 @@ const pinyinList = [];
 const lines = googlePinyin
   .split('\n')
   .filter(line => {
-    return line.includes(' 0 '); //filter ' 1 ', which is 繁体
+    return line.includes(' 0 '); // ' 0 ' means simplified chinese characters', while ' 1 ' means traditional chinese characters.
   })
   .map(function(line) {
     const pinyin = line.split(' 0 ')[1].replace(/\s/g, '');
