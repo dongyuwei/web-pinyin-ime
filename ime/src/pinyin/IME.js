@@ -8,7 +8,7 @@ import styles from './IME.module.css';
 const { TextArea } = Input;
 const Max_Candidates = 50;
 
-export default class Complete extends PureComponent {
+export default class IME extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
