@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.84f05084.chunk.css",
-    "main.js": "/static/js/main.f85de931.chunk.js",
-    "runtime~main.js": "/static/js/runtime~main.eafa5607.js",
-    "static/css/2.bd6a9626.chunk.css": "/static/css/2.bd6a9626.chunk.css",
-    "static/js/2.f4fab4d9.chunk.js": "/static/js/2.f4fab4d9.chunk.js",
-    "index.html": "/index.html",
-    "precache-manifest.a5125d56cdd5fb85d33bfce2c00a829c.js": "/precache-manifest.a5125d56cdd5fb85d33bfce2c00a829c.js",
-    "service-worker.js": "/service-worker.js"
+    "main.css": "/web-pinyin-ime/static/css/main.84f05084.chunk.css",
+    "main.js": "/web-pinyin-ime/static/js/main.3cf07258.chunk.js",
+    "runtime~main.js": "/web-pinyin-ime/static/js/runtime~main.9a572d85.js",
+    "static/css/2.bd6a9626.chunk.css": "/web-pinyin-ime/static/css/2.bd6a9626.chunk.css",
+    "static/js/2.a9954ce9.chunk.js": "/web-pinyin-ime/static/js/2.a9954ce9.chunk.js",
+    "index.html": "/web-pinyin-ime/index.html",
+    "precache-manifest.20d79c0f13d53c401091d195c9a9241a.js": "/web-pinyin-ime/precache-manifest.20d79c0f13d53c401091d195c9a9241a.js",
+    "service-worker.js": "/web-pinyin-ime/service-worker.js"
   }
 }
