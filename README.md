@@ -2,6 +2,11 @@
 
 online pinyin input method
 
+## online demo
+https://dongyuwei.github.io/web-pinyin-ime/
+
+If you would like to build and deploy to your own server, please change `"homepage": "https://dongyuwei.github.io/web-pinyin-ime/"` in `package.json` to `"/"` or your domain/subdomain.
+
 ## The pinyin dict source
 
 https://android.googlesource.com/platform/packages/inputmethods/PinyinIME/+/refs/heads/master/jni/data/rawdict_utf16_65105_freq.txt
@@ -82,10 +87,6 @@ it('should get sorted candidates with pinyin prefix', () => {
 });
 
 ```
-
-## online pinyin input method demo
-
-https://erlang.us
 
 ## How to customize?
 
