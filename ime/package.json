@@ -23,7 +23,7 @@
     "start": "PORT=5555 react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "build-gh-pages": "yarn build && rm ../docs && mv ./build/ ../docs/"
+    "build-gh-pages": "yarn build && rm -rf ../docs && mv ./build/ ../docs/"
   },
   "eslintConfig": {
     "extends": "react-app"

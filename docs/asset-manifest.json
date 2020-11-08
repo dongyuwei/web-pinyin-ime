@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/web-pinyin-ime/static/css/main.84f05084.chunk.css",
-    "main.js": "/web-pinyin-ime/static/js/main.3cf07258.chunk.js",
+    "main.js": "/web-pinyin-ime/static/js/main.970b6e13.chunk.js",
     "runtime~main.js": "/web-pinyin-ime/static/js/runtime~main.9a572d85.js",
     "static/css/2.bd6a9626.chunk.css": "/web-pinyin-ime/static/css/2.bd6a9626.chunk.css",
     "static/js/2.a9954ce9.chunk.js": "/web-pinyin-ime/static/js/2.a9954ce9.chunk.js",
     "index.html": "/web-pinyin-ime/index.html",
-    "precache-manifest.20d79c0f13d53c401091d195c9a9241a.js": "/web-pinyin-ime/precache-manifest.20d79c0f13d53c401091d195c9a9241a.js",
+    "precache-manifest.2e92fa469e2f586e33b6bf635a91bd36.js": "/web-pinyin-ime/precache-manifest.2e92fa469e2f586e33b6bf635a91bd36.js",
     "service-worker.js": "/web-pinyin-ime/service-worker.js"
   }
 }

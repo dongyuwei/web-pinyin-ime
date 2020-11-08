@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "822eb531deb9953e040818ff5c2363fb",
+    "revision": "31ccdc07120c395dc548556110d90ee6",
     "url": "/web-pinyin-ime/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/web-pinyin-ime/static/css/2.bd6a9626.chunk.css"
   },
   {
-    "revision": "d35daa388637dfa0df0d",
+    "revision": "7c5578bc2129167f12c3",
     "url": "/web-pinyin-ime/static/css/main.84f05084.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/web-pinyin-ime/static/js/2.a9954ce9.chunk.js"
   },
   {
-    "revision": "d35daa388637dfa0df0d",
-    "url": "/web-pinyin-ime/static/js/main.3cf07258.chunk.js"
+    "revision": "7c5578bc2129167f12c3",
+    "url": "/web-pinyin-ime/static/js/main.970b6e13.chunk.js"
   },
   {
     "revision": "375dca1b6838ed70a66b",
