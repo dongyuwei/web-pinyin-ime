@@ -1,7 +1,6 @@
 import getCandidates from './ime_engine';
 
 it('should get candidates with key', () => {
-  console.log(getCandidates('key'));
   expect(getCandidates('key')).toEqual([
     '可以',     '可以用',   '可以通过', '可用',     '可以看到',
     '科研',     '可以说是', '刻意',     '可以看出', '可以选择',

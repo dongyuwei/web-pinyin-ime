@@ -48,8 +48,9 @@ const getCandidates = (trie, dict) => input => {
     }
 
     //sort candidates by word frequency
-    list = list.sort((a, b) => b.f - a.f)
+    list = list
     .filter(item => !!item)
+    .sort((a, b) => b.f - a.f)
     .map(item => item.w);
   }
   return uniq(list);
