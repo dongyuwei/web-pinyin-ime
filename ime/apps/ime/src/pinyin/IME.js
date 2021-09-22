@@ -15,13 +15,13 @@ export default class IME extends PureComponent {
       dataSource: [],
       value: '',
       rawInput: '',
-      currentInput: ''
+      currentInput: '',
     };
 
     this.getCandidatesThrottled = throttle(this.getCandidates, 100);
   }
 
-  getCandidates = rawInput => {
+  getCandidates = (rawInput) => {
     const arr = rawInput
       .trim()
       .toLowerCase()
@@ -33,28 +33,28 @@ export default class IME extends PureComponent {
 
     this.setState({
       rawInput,
-      currentInput: input
+      currentInput: input,
     });
 
     if (input) {
       this.setState({
-        dataSource: getCandidates(input).slice(0, Max_Candidates)
+        dataSource: getCandidates(input).slice(0, Max_Candidates),
       });
     } else {
       this.setState({
-        dataSource: []
+        dataSource: [],
       });
     }
   };
 
-  onSelect = value => {
+  onSelect = (value) => {
     this.setState({
       // we must keep the raw input, includes existing Chinese characters and all punctuations and space.
-      value: this.state.rawInput.replace(this.state.currentInput, value)
+      value: this.state.rawInput.replace(this.state.currentInput, value),
     });
   };
 
-  onChange = value => {
+  onChange = (value) => {
     this.setState({ value });
   };
 
@@ -83,7 +83,7 @@ export default class IME extends PureComponent {
           <TextArea
             placeholder="Please input Chinese pinyin 请输入拼音"
             style={{ height: 77 }}
-            ref={inputEl => {
+            ref={(inputEl) => {
               this.inputEl = inputEl;
             }}
           />
