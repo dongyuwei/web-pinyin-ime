@@ -8,9 +8,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/workspace:run-commands",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "command": "node ../../node_modules/.bin/react-app-rewired build",
             "cwd": "apps/ime",
@@ -37,7 +35,7 @@
           "executor": "@nrwl/workspace:run-commands",
           "outputs": [],
           "options": {
-            "command": "node ../../node_modules/.bin/react-app-rewired test --watchAll=false",
+            "command": "node ../../node_modules/.bin/react-scripts test",
             "cwd": "apps/ime"
           }
         }
@@ -51,21 +49,14 @@
         "e2e": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "nx e2e-serve ime-e2e",
-              "nx e2e-run ime-e2e"
-            ]
+            "commands": ["nx e2e-serve ime-e2e", "nx e2e-run ime-e2e"]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/ime-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/ime-e2e/**/*.{js,ts}"]
           }
         },
         "e2e-run": {
@@ -79,9 +70,7 @@
         "e2e-serve": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "nx serve ime"
-            ],
+            "commands": ["nx serve ime"],
             "readyWhen": "can now view"
           }
         }
