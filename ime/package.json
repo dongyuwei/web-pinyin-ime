@@ -1,43 +1,57 @@
 {
-  "name": "ime",
-  "version": "0.1.0",
+  "name": "temp-workspace",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test"
+  },
   "private": true,
   "dependencies": {
-    "antd": "^3.22.2",
-    "dawg-lookup": "^2.2.1",
-    "lodash": "^4.17.15",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "core-js": "^3.6.5",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "regenerator-runtime": "0.13.7",
+    "tslib": "^2.0.0"
   },
-  "engines": {
-    "node": ">= 10.16.3"
-  },
-  "author": {
-    "name": "dongyuwei",
-    "email": "newdongyuwei@gmail.com",
-    "url": "https://twitter.com/newdongyuwei"
-  },
-  "homepage": "https://dongyuwei.github.io/web-pinyin-ime/",
-  "scripts": {
-    "start": "PORT=5555 react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test",
-    "build-gh-pages": "yarn build && rm -rf ../docs && mv ./build/ ../docs/"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@nrwl/cli": "12.9.0",
+    "@nrwl/cypress": "12.9.0",
+    "@nrwl/eslint-plugin-nx": "12.9.0",
+    "@nrwl/jest": "12.9.0",
+    "@nrwl/linter": "12.9.0",
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/react": "12.9.0",
+    "@nrwl/tao": "12.9.0",
+    "@nrwl/web": "12.9.0",
+    "@nrwl/workspace": "12.9.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "11.2.6",
+    "@testing-library/react-hooks": "7.0.1",
+    "@types/jest": "26.0.24",
+    "@types/node": "14.14.33",
+    "@types/react": "17.0.3",
+    "@types/react-dom": "17.0.3",
+    "@typescript-eslint/eslint-plugin": "~4.28.3",
+    "@typescript-eslint/parser": "~4.28.3",
+    "babel-jest": "27.0.6",
+    "cypress": "^8.3.0",
+    "eslint": "7.22.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.23.1",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "jest": "27.0.3",
+    "jest-watch-typeahead": "^0.6.4",
+    "prettier": "^2.3.1",
+    "react-app-rewired": "^2.1.8",
+    "react-scripts": "^4.0.3",
+    "ts-jest": "27.0.3",
+    "typescript": "~4.3.5",
+    "web-vitals": "^2.1.0"
   }
 }

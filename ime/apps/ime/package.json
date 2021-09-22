@@ -1,0 +1,43 @@
+{
+  "name": "ime",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.22.2",
+    "dawg-lookup": "^2.2.1",
+    "lodash": "^4.17.15",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1"
+  },
+  "engines": {
+    "node": ">= 10.16.3"
+  },
+  "author": {
+    "name": "dongyuwei",
+    "email": "newdongyuwei@gmail.com",
+    "url": "https://twitter.com/newdongyuwei"
+  },
+  "homepage": "https://dongyuwei.github.io/web-pinyin-ime/",
+  "scripts": {
+    "start": "PORT=5555 react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test",
+    "build-gh-pages": "yarn build && rm -rf ../docs && mv ./build/ ../docs/"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
