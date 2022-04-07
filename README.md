@@ -3,6 +3,7 @@
 online pinyin input method
 
 ## online demo
+
 https://dongyuwei.github.io/web-pinyin-ime/
 
 If you would like to build and deploy to your own server, please change `"homepage": "https://dongyuwei.github.io/web-pinyin-ime/"` in `package.json` to `"/"` or your domain/subdomain.
@@ -27,18 +28,22 @@ The `rawdict_utf16_65105_freq.txt` and `NOTICE` are included in `./ime/src/scrip
 
 ## Dev prerequisite
 
-- nodejs(tested with v12.5.0)
-- yarn(tested with 1.17.3)
+- nodejs(tested with v14.17.0)
+- pnpm(tested with 6.17.2)
 
-Make sure you installed nodejs and yarn, then istall npm packages: `cd ime && yarn install`
+Make sure you installed nodejs and yarn, then istall npm packages: `cd ime && pnpm install`
 
-## For dev, see `./ime/README.md`
+## For dev
+
+- pnpm run dev
 
 The core logic located in `./ime/src/pinyin/ime_engine.js` and `./ime/src/pinyin/IME.js`
 If you make any changes, make sure to run `cd ime && yarn test`, see `./ime/src/pinyin/ime_engine.test.js`.
 
 ## Tests
+
 see `./ime/src/pinyin/ime_engine.test.js`, 支持
+
 - 全拼
 - 首字母匹配
 - 拼音前缀匹配
@@ -52,7 +57,13 @@ it('should get candidates with full pinyin', () => {
 
 it('should get sorted candidates with abbr of pinyin(First chars of pinyin)', () => {
   // `xhs` maybe abbr of `xin hua she`, or `xi hong shi`, etc.
-  expect(getCandidates('xhs')).toEqual(['新华社', '西红柿', '小和尚', '小护士', '巡回赛']);
+  expect(getCandidates('xhs')).toEqual([
+    '新华社',
+    '西红柿',
+    '小和尚',
+    '小护士',
+    '巡回赛',
+  ]);
 });
 
 it('should get sorted candidates with pinyin prefix', () => {
@@ -75,7 +86,7 @@ it('should get sorted candidates with pinyin prefix', () => {
     '喜欢什么',
     '喜欢自己',
     '西海岸',
-    '西化'
+    '西化',
   ]);
 
   expect(getCandidates('xiho')).toEqual(['西红柿']);
@@ -85,7 +96,6 @@ it('should get sorted candidates with pinyin prefix', () => {
   expect(getCandidates('xihongsh')).toEqual(['西红柿']);
   expect(getCandidates('xihongshi')).toEqual(['西红柿']);
 });
-
 ```
 
 ## How to customize?
