@@ -7,7 +7,7 @@
     "build": "tsc && vite build --base=./",
     "preview": "vite preview",
     "test": "vite-jest",
-    "build-gh-pages": "pnpm run build && rm ../docs && mv ./dist/ ../docs/"
+    "build-gh-pages": "pnpm run build && rm -rf ../docs && mv ./dist/ ../docs/"
   },
   "dependencies": {
     "antd": "4.19.5",
