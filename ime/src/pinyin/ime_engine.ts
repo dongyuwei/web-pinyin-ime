@@ -1,6 +1,6 @@
 import { flatten, uniq } from 'lodash';
 import { dict, packedTrie } from './google_pinyin_dict_utf8_55320';
-import { PTrie } from 'dawg-lookup/lib/ptrie';
+import { PTrie } from 'dawg-lookup/src/ptrie';
 
 interface IDict {
   [key: string]: IWord[];

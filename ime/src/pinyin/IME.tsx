@@ -1,11 +1,11 @@
 import { PureComponent } from 'react';
-import { AutoComplete, Input } from 'antd';
+import AutoComplete from 'antd/es/auto-complete';
+import TextArea from 'antd/es/input/TextArea';
 import { throttle } from 'lodash';
 
 import getCandidates from './ime_engine';
 import styles from './IME.module.css';
 
-const { TextArea } = Input;
 const Max_Candidates = 50;
 
 interface IOption {
