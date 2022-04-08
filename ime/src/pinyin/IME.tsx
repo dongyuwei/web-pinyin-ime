@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import { AutoComplete, Input } from 'antd';
 import { throttle } from 'lodash';
 
-import getCandidates, { IWord } from './ime_engine';
+import getCandidates from './ime_engine';
 import styles from './IME.module.css';
 
 const { TextArea } = Input;
@@ -15,7 +15,7 @@ interface IOption {
 
 interface iProps {}
 interface IState {
-  dataSource: IOption[];
+  options: IOption[];
   value: string;
   rawInput: string;
   currentInput: string;
@@ -27,7 +27,7 @@ export default class IME extends PureComponent<iProps, IState> {
     super(props);
 
     this.state = {
-      dataSource: [],
+      options: [],
       value: '',
       rawInput: '',
       currentInput: '',
@@ -53,16 +53,16 @@ export default class IME extends PureComponent<iProps, IState> {
 
     if (input) {
       this.setState({
-        dataSource: getCandidates(input)
+        options: getCandidates(input)
           .slice(0, Max_Candidates)
-          .map((word: IWord) => ({
+          .map((word: string) => ({
             label: word,
             value: word,
           })),
       });
     } else {
       this.setState({
-        dataSource: [],
+        options: [],
       });
     }
   };
@@ -79,12 +79,12 @@ export default class IME extends PureComponent<iProps, IState> {
   };
 
   render() {
-    const { value, dataSource } = this.state;
+    const { value, options } = this.state;
     return (
       <div className={styles.inputBox}>
         <AutoComplete
           value={value}
-          options={dataSource}
+          options={options}
           style={{ width: 400 }}
           onSelect={this.onSelect}
           onSearch={this.getCandidatesThrottled}

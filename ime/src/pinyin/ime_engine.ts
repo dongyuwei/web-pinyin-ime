@@ -6,32 +6,38 @@ interface IDict {
   [key: string]: IWord[];
 }
 
-export interface IWord {
+interface IWord {
   w: string;
   f: number;
 }
 
-const getCandidates =
-  (trie: typeof PTrie, dict: IDict) =>
-  (input: string): IWord[] => {
-    let list: IWord[] = [];
-    if (input) {
-      const value: IWord[] = dict[input];
-      if (value) {
-        // full pinyin match, or abbr match.
-        list = value;
-      } else if (input.length > 2) {
-        // pinyin prefix match, using prepared packed trie data.
-        list = flatten(trie.completions(input).map((key: string) => dict[key]));
-      }
+const typedDict: IDict = dict;
 
-      //sort candidates by word frequency
-      list = list
-        .filter((item: IWord) => !!item)
-        .sort((a, b) => b.f - a.f)
-        .map((item) => item.w);
+const trie = new PTrie(packedTrie);
+const getCandidates = (input: string): string[] => {
+  let list: IWord[] = [];
+  let candidates: string[] = [];
+
+  if (input) {
+    const value: IWord[] = typedDict[input];
+    if (value) {
+      // full pinyin match, or abbr match.
+      list = value;
+    } else if (input.length > 2) {
+      // pinyin prefix match, using prepared packed trie data.
+      list = flatten(
+        trie.completions(input).map((key: string) => typedDict[key])
+      );
     }
-    return uniq(list);
-  };
 
-export default getCandidates(new PTrie(packedTrie), dict);
+    //sort candidates by word frequency
+    candidates = list
+      .filter((item: IWord) => !!item)
+      .sort((a, b) => b.f - a.f)
+      .map((item) => item.w);
+  }
+
+  return uniq(candidates);
+};
+
+export default getCandidates;

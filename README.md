@@ -35,7 +35,7 @@ Make sure you installed nodejs and yarn, then istall npm packages: `cd ime && pn
 
 ## For dev
 
-- pnpm run dev
+`pnpm run dev`
 
 The core logic located in `./ime/src/pinyin/ime_engine.js` and `./ime/src/pinyin/IME.js`
 If you make any changes, make sure to run `cd ime && yarn test`, see `./ime/src/pinyin/ime_engine.test.js`.
