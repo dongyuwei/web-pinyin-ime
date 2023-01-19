@@ -29,14 +29,14 @@ The `rawdict_utf16_65105_freq.txt` and `NOTICE` are included in `./ime/src/scrip
 - nodejs(tested with v14.17.0)
 - pnpm(tested with 6.17.2)
 
-Make sure you installed nodejs and yarn, then istall npm packages: `cd ime && pnpm install`
+Make sure you installed nodejs and pnpm, then istall npm packages: `cd ime && pnpm install`
 
 ## For dev
 
 `pnpm run dev`
 
-The core logic located in `./ime/src/pinyin/ime_engine.js` and `./ime/src/pinyin/IME.js`
-If you make any changes, make sure to run `cd ime && yarn test`, see `./ime/src/pinyin/ime_engine.test.js`.
+The core logic located in `./ime/src/pinyin/ime_engine.js` and `./ime/src/pinyin/IME.tsx`
+If you make any changes, make sure to run `cd ime && pnpm test`, see `./ime/src/pinyin/ime_engine.test.ts`.
 
 ## Tests
 
