@@ -1,6 +1,5 @@
-// import { flatten, uniq } from 'lodash';
-import { flatten } from 'lodash/flatten';
-import { uniq } from 'lodash/uniq';
+import flatten from 'lodash/flatten';
+import uniq from 'lodash/uniq';
 import { dict, packedTrie } from './google_pinyin_dict_utf8_55320';
 import { PTrie } from 'dawg-lookup/src/ptrie';
 
