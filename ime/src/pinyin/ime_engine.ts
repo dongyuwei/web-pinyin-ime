@@ -24,7 +24,7 @@ const getCandidates = (input: string): string[] => {
     if (value) {
       // full pinyin match, or abbr match.
       list = value;
-    } else if (input.length > 2) {
+    } else if (input.length >= 1) {
       // pinyin prefix match, using prepared packed trie data.
       list = flatten(
         trie.completions(input).map((key: string) => typedDict[key])
