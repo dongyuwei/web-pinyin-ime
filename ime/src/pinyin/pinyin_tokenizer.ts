@@ -473,26 +473,19 @@ export class PinyinTokenizer {
     });
   }
 
-  public tokenize(sent: string): [string[], string[]] {
+  public tokenize(sentence: string): [string[], string[]] {
     let words: string[] = [];
     let invalidWords: string[] = [];
-    while (sent.length > 0) {
-      const [buf, succ] = this.root.find(sent);
+    while (sentence.length > 0) {
+      const [buf, succ] = this.root.find(sentence);
       if (succ) {
         words.push(buf);
-        sent = sent.substring(buf.length);
+        sentence = sentence.substring(buf.length);
       } else {
-        invalidWords.push(sent[0]);
-        sent = sent.substring(1);
+        invalidWords.push(sentence[0]);
+        sentence = sentence.substring(1);
       }
     }
     return [words, invalidWords];
   }
 }
-
-/* Example usage
-const tokenizer = new PinyinTokenizer();
-const [words, invalidWords] = tokenizer.tokenize('jintianxtianqibucuo');
-console.log('Words:', words);
-console.log('Invalid Words:', invalidWords);
-*/
